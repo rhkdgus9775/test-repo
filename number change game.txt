@@ -16,7 +16,7 @@ class Program
             int correctNumber = random.Next(1, 97);
 
             int attempts = 0;
-            int maxAttempts = 20; // 최대 시도 횟수 변경
+            int maxAttempts = 21; // 최대 시도 횟수 변경
 
             bool guessed = false;
 
@@ -48,7 +48,7 @@ class Program
                 }
 
                 // 틀린 횟수가 일정 횟수 이상이면 게임 종료
-                if (attempts >= 20 && !guessed) // 틀린 횟수가 20번 이상이면 게임 종료
+                if (attempts >= 21 && !guessed) // 틀린 횟수가 20번 이상이면 게임 종료
                 {
                     Console.WriteLine("죄송합니다. 틀린 횟수가 많아 게임을 종료합니다.");
                     break;
