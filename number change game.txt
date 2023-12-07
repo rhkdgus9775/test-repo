@@ -48,7 +48,7 @@ class Program
                 }
 
                 // 힌트 제공
-                if (attempts % 6 == 0 && !guessed)
+                if (attempts % 7 == 0 && !guessed)
                 {
                     Console.WriteLine($"힌트: 정답은 {correctNumber} 입니다.");
                 }
