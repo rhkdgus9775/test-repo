@@ -4,41 +4,51 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("숫자 맞추기 게임에 오신 것을 환영합니다!");
-        Console.WriteLine("1부터 100 사이의 숫자를 맞춰보세요.");
+        bool playAgain = true;
 
-        // 랜덤한 숫자 생성
-        Random random = new Random();
-        int correctNumber = random.Next(1, 101);
-
-        bool guessed = false;
-
-        while (!guessed)
+        while (playAgain)
         {
-            Console.Write("추측한 숫자를 입력하세요: ");
-            string userInput = Console.ReadLine();
+            Console.WriteLine("숫자 맞추기 게임에 오신 것을 환영합니다!");
+            Console.WriteLine("1부터 100 사이의 숫자를 맞춰보세요.");
 
-            // 사용자가 숫자를 입력했는지 확인
-            if (!int.TryParse(userInput, out int userGuess))
+            // 랜덤한 숫자 생성
+            Random random = new Random();
+            int correctNumber = random.Next(1, 101);
+
+            bool guessed = false;
+
+            while (!guessed)
             {
-                Console.WriteLine("유효한 숫자를 입력하세요.");
-                continue;
+                Console.Write("추측한 숫자를 입력하세요: ");
+                string userInput = Console.ReadLine();
+
+                // 사용자가 숫자를 입력했는지 확인
+                if (!int.TryParse(userInput, out int userGuess))
+                {
+                    Console.WriteLine("유효한 숫자를 입력하세요.");
+                    continue;
+                }
+
+                // 입력한 숫자와 정답 비교
+                if (userGuess < correctNumber)
+                {
+                    Console.WriteLine("너무 낮습니다. 다시 시도하세요.");
+                }
+                else if (userGuess > correctNumber)
+                {
+                    Console.WriteLine("너무 높습니다. 다시 시도하세요.");
+                }
+                else
+                {
+                    Console.WriteLine("축하합니다! 숫자를 맞추셨습니다.");
+                    guessed = true;
+                }
             }
 
-            // 입력한 숫자와 정답 비교
-            if (userGuess < correctNumber)
-            {
-                Console.WriteLine("너무 낮습니다. 다시 시도하세요.");
-            }
-            else if (userGuess > correctNumber)
-            {
-                Console.WriteLine("너무 높습니다. 다시 시도하세요.");
-            }
-            else
-            {
-                Console.WriteLine("축하합니다! 숫자를 맞추셨습니다.");
-                guessed = true;
-            }
+            Console.Write("게임을 다시 하시겠습니까? (y/n): ");
+            string playChoice = Console.ReadLine();
+
+            playAgain = (playChoice.ToLower() == "y");
         }
 
         Console.WriteLine("게임 종료!");
