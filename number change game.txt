@@ -9,11 +9,11 @@ class Program
         while (playAgain)
         {
             Console.WriteLine("숫자 맞추기 게임에 오신 것을 환영합니다!");
-            Console.WriteLine("1부터 98 사이의 숫자를 맞춰보세요.");
+            Console.WriteLine("1부터 97 사이의 숫자를 맞춰보세요.");
 
             // 랜덤한 숫자 생성
             Random random = new Random();
-            int correctNumber = random.Next(1, 99);
+            int correctNumber = random.Next(1, 98);
 
             bool guessed = false;
 
