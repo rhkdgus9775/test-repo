@@ -30,6 +30,11 @@ class Program
                     Console.WriteLine("유효한 숫자를 입력하세요.");
                     continue;
                 }
+                  if (userGuess < minNumber || userGuess > maxNumber)
+                {
+                    Console.WriteLine($"경고: {minNumber}부터 {maxNumber} 사이의 숫자를 입력하세요.");
+                    continue;
+                }
 
                 attempts++;
 
